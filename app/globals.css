@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: var(--font-body), 'Nunito', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #4a3320;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ── Papan Kayu ─────────────────────────── */
+  .plank {
+    background: linear-gradient(135deg, #c98d52 0%, #a96f3a 100%);
+    color: #fffae0;
+    font-family: var(--font-display), 'Playfair Display', serif;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 0 #7a4a22, 0 6px 12px rgba(0,0,0,0.25);
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Kartu Krem ─────────────────────────── */
+  .card-cream {
+    background-color: #fffae0;
+    border: 3px solid #e8d79a;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 0 rgba(122, 74, 34, 0.25), 0 12px 24px rgba(0,0,0,0.1);
+  }
+
+  /* ── Gradasi Judul ──────────────────────── */
+  .title-grad {
+    background: linear-gradient(135deg, #f6e87a 0%, #f6b830 40%, #6fb83a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(63, 125, 42, 0.5));
+  }
+
+  /* ── Tombol Utama ───────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #f6b830;
+    color: #7a4a22;
+    font-family: var(--font-display), 'Playfair Display', serif;
+    font-weight: 700;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 0 #b57b45;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    min-height: 44px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #b57b45;
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 #b57b45;
+  }
+
+  .btn-primary:focus-visible {
+    outline: 3px solid #3f7d2a;
+    outline-offset: 3px;
+  }
+
+  /* ── Gradasi Latar ──────────────────────── */
+  .bg-nature {
+    background: linear-gradient(
+      180deg,
+      #4fb8ee 0%,
+      #8fdcf5 25%,
+      #c5f0a4 60%,
+      #6fb83a 100%
+    );
+  }
+
+  /* ── Kartu Tanaman ──────────────────────── */
+  .plant-card {
+    display: block;
+    text-decoration: none;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    border-radius: 1.5rem;
+  }
+
+  .plant-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .plant-card:focus-visible {
+    outline: 3px solid #3f7d2a;
+    outline-offset: 4px;
+    border-radius: 1.5rem;
+  }
+}
