@@ -73,9 +73,9 @@ git push -u origin main
 1. Buka https://vercel.com dan login (atau daftar gratis).
 2. Klik **"Add New → Project"**.
 3. Klik **"Import"** di sebelah repo `cultivare-katalog` dari GitHub.
-4. Biarkan semua pengaturan default (Framework: Next.js, Build Command: `next build`, Output Directory: `out`).
+4. Biarkan semua pengaturan default (Framework: **Next.js**, Build Command: `next build`, Output Directory: otomatis dikelola Next.js).
 5. Klik **"Deploy"** – tunggu sekitar 1–2 menit.
-6. URL project akan muncul, misalnya: `https://cultivare-katalog.vercel.app`
+6. URL project akan aktif, misalnya: `https://cultivare-katalog.vercel.app`
 
 ---
 

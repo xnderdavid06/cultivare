@@ -2,10 +2,10 @@ import './globals.css';
 
 export const metadata = {
   title: 'Cultivare · Katalog Tanaman Herbal',
-  description: 'Katalog tanaman herbal Kampung Binaan Mahasiswa X – Cultivare. Pelajari tanaman obat tradisional Indonesia.',
+  description: 'Katalog tanaman herbal Kampung Binaan Mahasiswa X bersama Roowy.',
   icons: {
-    icon: '/assets/maskot-badge.png',
-    apple: '/assets/maskot-badge.png',
+    icon: '/assets/roowy-clean.png',
+    apple: '/assets/roowy-clean.png',
   },
 };
 
@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased text-bark">
         {children}
       </body>
     </html>

@@ -13,9 +13,9 @@ export default function PlantImage({ src, alt, className }) {
         aria-label={alt || 'Foto tanaman belum tersedia'}
       >
         <img
-          src="/assets/maskot-badge.png"
-          alt="maskot Cultivare"
-          className="w-24 h-24 object-contain drop-shadow-md"
+          src="/assets/roowy-clean.png"
+          alt="Maskot Roowy"
+          className="w-24 h-24 object-contain drop-shadow"
         />
       </div>
     );

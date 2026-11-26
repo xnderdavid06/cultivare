@@ -4,50 +4,65 @@ import { site } from '../data/plants.js';
 export default function Header({ minimal = false }) {
   return (
     <header className="relative z-10 pt-8 pb-4 px-4 text-center">
-      {/* Awan dekoratif */}
-      <div
+      {/* ── 3 Awan Asli dari Aset Pengguna ── */}
+      <img
+        src="/assets/awan 1.png"
+        alt=""
         aria-hidden="true"
-        className="fixed top-6 left-[-60px] w-56 h-20 bg-white/60 rounded-full blur-2xl -z-10 pointer-events-none"
+        className="fixed top-6 -left-12 w-48 opacity-80 -z-10 pointer-events-none select-none"
       />
-      <div
+      <img
+        src="/assets/awan 2.png"
+        alt=""
         aria-hidden="true"
-        className="fixed top-16 right-[-40px] w-72 h-24 bg-white/50 rounded-full blur-3xl -z-10 pointer-events-none"
+        className="fixed top-14 -right-12 w-56 opacity-80 -z-10 pointer-events-none select-none"
       />
-      <div
+      <img
+        src="/assets/awan 3.png"
+        alt=""
         aria-hidden="true"
-        className="fixed top-2 left-[30%] w-48 h-16 bg-white/40 rounded-full blur-2xl -z-10 pointer-events-none"
+        className="fixed top-2 left-1/3 w-40 opacity-70 -z-10 pointer-events-none select-none"
       />
 
-      {/* Maskot */}
+      {/* ── Maskot Roowy di Header (Border Krem Tebal) ── */}
       <div className="flex justify-center mb-3">
-        <Link href="/" aria-label="Ke halaman utama">
-          <img
-            src="/assets/maskot-badge.png"
-            alt="Maskot Cultivare – anak tunas bertopi jerami"
-            width={88}
-            height={88}
-            className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-cream shadow-lg shadow-wood/40 hover:scale-105 transition-transform duration-200"
-          />
+        <Link
+          href="/"
+          aria-label="Ke halaman utama katalog"
+          className="active:translate-y-1 transition-transform"
+        >
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-cream shadow-[0_4px_0_#7a4a22] bg-[#fbf5dc] overflow-hidden flex items-center justify-center">
+            <img
+              src="/assets/roowy-clean.png"
+              alt="Roowy si maskot tunas"
+              className="w-18 h-18 md:w-22 md:h-22 object-contain"
+            />
+          </div>
         </Link>
       </div>
 
-      {/* Label event */}
-      <p className="text-xs uppercase tracking-[0.2em] text-white font-semibold drop-shadow mb-1">
+      {/* ── Teks Kapital Berspasi Acara ── */}
+      <p className="text-xs uppercase tracking-[0.2em] text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] mb-1">
         {site.event}
       </p>
 
-      {/* Judul */}
-      <Link href="/" className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf rounded-lg">
-        <h1 className="font-display font-black text-6xl md:text-7xl leading-none title-grad select-none">
-          {site.title}
-        </h1>
-      </Link>
+      {/* ── Judul Cultivare (Font Playfair Display Tebal, Gradasi Kuning ke Hijau) ── */}
+      <div className="relative inline-block">
+        <Link
+          href="/"
+          className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-dark rounded-lg active:translate-y-1 transition-transform"
+        >
+          <h1 className="title-grad text-6xl md:text-7xl leading-none select-none tracking-tight">
+            {site.title}
+          </h1>
+        </Link>
+      </div>
 
-      {/* Label papan kayu */}
+      {/* ── Label Papan Kayu Asli "Katalog Tanaman Herbal" ── */}
       {!minimal && (
-        <div className="mt-3 inline-block">
-          <span className="plank px-6 py-2 text-sm md:text-base">
-            🌿 {site.tagline}
+        <div className="mt-3 flex justify-center">
+          <span className="plank px-6 py-2 text-sm md:text-base inline-block">
+            {site.tagline}
           </span>
         </div>
       )}

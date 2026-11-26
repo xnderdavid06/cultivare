@@ -73,6 +73,8 @@ export const plants = [
     },
     catatan:
       "Konsumsi kunyit dalam jumlah besar sebaiknya dihindari oleh penderita gangguan empedu atau batu empedu. Kunyit dapat berinteraksi dengan obat pengencer darah. Ibu hamil disarankan berkonsultasi dengan dokter sebelum mengonsumsi suplemen kunyit dosis tinggi.",
+    catatanRoowy:
+      "Rimpang oranye terang ini sahabat terbaik lambung dan bahan jamu favorit Roowy! Selain buat jamu kunyit asam segar, kunyit juga pewarna alami masakan kesukaan Roowy! 🌱✨",
   },
 
   // ─── 2. JAHE MERAH ───────────────────────────────────────────────────────────
@@ -120,6 +122,8 @@ export const plants = [
     },
     catatan:
       "Konsumsi berlebihan jahe merah dapat menyebabkan iritasi pada lambung, terutama bagi penderita tukak lambung atau maag berat. Jahe dapat berinteraksi dengan obat pengencer darah. Ibu hamil trimester pertama sebaiknya berkonsultasi dengan dokter sebelum mengonsumsi dalam jumlah banyak.",
+    catatanRoowy:
+      "Aromanya pedas harum dan rasanya paling nampol! Roowy selalu seduh jahe merah hangat kalau badan mulai terasa meriang atau cuaca sedang dingin. 🔥☕",
   },
 
   // ─── 3. SERAI ────────────────────────────────────────────────────────────────
@@ -167,6 +171,8 @@ export const plants = [
     },
     catatan:
       "Minyak atsiri serai murni tidak disarankan langsung dioleskan ke kulit tanpa diencerkan terlebih dahulu karena dapat menyebabkan iritasi. Encerkan dengan minyak pembawa (minyak kelapa atau zaitun) sebelum digunakan topikal. Konsultasikan dengan dokter jika digunakan bersamaan dengan obat-obatan tertentu.",
+    catatanRoowy:
+      "Tinggal memarkan batangnya, aroma sitral segar langsung semerbak! Roowy suka menanam serai di pekarangan karena aromanya bikin nyamuk langsung kabur! 🌾🍋",
   },
 
   // ─── 4. TEMULAWAK ────────────────────────────────────────────────────────────
@@ -214,5 +220,7 @@ export const plants = [
     },
     catatan:
       "Penderita batu empedu atau gangguan saluran empedu sebaiknya berkonsultasi dengan dokter sebelum mengonsumsi temulawak dalam jumlah besar. Ibu hamil dan menyusui sebaiknya menghindari konsumsi suplemen temulawak dosis tinggi. Gunakan dalam batas wajar sebagaimana umumnya dikonsumsi sebagai minuman.",
+    catatanRoowy:
+      "Tanaman jamu asli nusantara kebanggaan Roowy! Rimpangnya besar jingga tua, terkenal sangat ampuh bantu jaga fungsi liver dan tingkatkan nafsu makan! 🏺💛",
   },
 ];

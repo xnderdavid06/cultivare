@@ -27,6 +27,7 @@ module.exports = {
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
         body: ['Nunito', 'system-ui', 'sans-serif'],
+        sans: ['Nunito', 'system-ui', 'sans-serif'],
       },
     },
   },
