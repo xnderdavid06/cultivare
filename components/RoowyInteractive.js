@@ -32,11 +32,13 @@ export default function RoowyInteractive({ plantNote = null }) {
           aria-label="Ketuk Roowy untuk tips lain"
           className="shrink-0 flex flex-col items-center justify-center focus:outline-none group active:translate-y-1 transition-transform pt-1"
         >
-          <img
-            src="/assets/roowy-head.png"
-            alt="Kepala Roowy si maskot tunas"
-            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain anim-bob drop-shadow-md group-hover:scale-105 group-active:scale-95 transition-transform select-none pointer-events-none"
-          />
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center">
+            <img
+              src="/assets/roowy-head.png"
+              alt="Kepala Roowy si maskot tunas"
+              className="w-full h-full object-contain anim-bob drop-shadow-md group-hover:scale-105 group-active:scale-95 transition-transform select-none pointer-events-none"
+            />
+          </div>
           {/* Badge "Ketuk!" di bawah kepala Roowy dengan jarak aman (TIDAK menutupi dagu/mulut) */}
           <span className="mt-1.5 whitespace-nowrap bg-[#f6b830] text-[#7a4a22] text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border-2 border-[#b57b45] shadow-[0_2px_0_#b57b45] select-none font-display group-hover:scale-105 transition-transform">
             Ketuk!

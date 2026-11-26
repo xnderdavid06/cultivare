@@ -124,32 +124,32 @@ export default function PlantPage({ params }) {
               Famili: <span className="italic font-bold">{plant.famili}</span>
             </p>
 
-            {/* 3. Box KATA ROOWY – Samakan dengan Style Chat Awal (Kepala Saja, Tetap Gerak, Sizing Pas & Mantap) */}
+            {/* 3. Box KATA ROOWY – Kepala Roowy Proporsional Sesuai Image 2, Aman Responsif di Semua Layar */}
             {plant.catatanRoowy && (
-              <div className="relative mt-6 pt-1 flex items-center gap-3 sm:gap-5">
-                {/* Kepala Roowy Ceria & Tetap Bergoyang – Ukuran Pas & Mantap Sesuai Beranda */}
-                <div className="shrink-0 relative flex items-center justify-center">
+              <div className="relative mt-6 pt-1 flex items-center gap-3 sm:gap-4">
+                {/* Kepala Roowy Ceria & Tetap Bergoyang – Ukuran Aman Terkunci Sesuai Image 2 */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center">
                   <img
                     src="/assets/roowy-head.png"
                     alt="Kepala Roowy"
-                    className="w-22 h-22 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain anim-bob drop-shadow-md select-none pointer-events-none"
+                    className="w-full h-full object-contain anim-bob drop-shadow-md select-none pointer-events-none"
                   />
                 </div>
 
                 {/* Balon Dialog Kata Roowy yang Luas & Nyaman Dibaca */}
                 <div className="flex-1 min-w-0">
-                  <div className="relative bg-[#fffdf0] border-2 sm:border-3 border-[#d8b878] rounded-2xl sm:rounded-3xl px-4 py-3.5 sm:px-6 sm:py-5 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)]">
+                  <div className="relative bg-[#fffdf0] border-2 sm:border-3 border-[#d8b878] rounded-2xl sm:rounded-3xl px-3.5 py-3 sm:px-5 sm:py-4 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)]">
                     {/* Ekor balon dialog menunjuk ke arah kepala Roowy di kiri */}
-                    <div className="absolute -left-[12px] top-6 sm:top-8 w-0 h-0
-                      border-t-[9px] border-t-transparent
+                    <div className="absolute -left-[12px] top-5 sm:top-6 w-0 h-0
+                      border-t-[8px] border-t-transparent
                       border-r-[12px] border-r-[#d8b878]
-                      border-b-[9px] border-b-transparent" />
-                    <div className="absolute -left-[8px] top-[26px] sm:top-[31px] w-0 h-0
-                      border-t-[7px] border-t-transparent
-                      border-r-[9px] border-r-[#fffdf0]
-                      border-b-[7px] border-b-transparent" />
+                      border-b-[8px] border-b-transparent" />
+                    <div className="absolute -left-[8px] top-[24px] sm:top-[28px] w-0 h-0
+                      border-t-[6px] border-t-transparent
+                      border-r-[8px] border-r-[#fffdf0]
+                      border-b-[6px] border-b-transparent" />
 
-                    <p className="text-bark text-sm sm:text-base md:text-lg leading-relaxed font-bold">
+                    <p className="text-bark text-xs sm:text-sm md:text-base leading-relaxed font-bold">
                       "{plant.catatanRoowy}"
                     </p>
                   </div>
