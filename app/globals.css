@@ -33,38 +33,56 @@
 }
 
 @layer components {
-  /* ── Papan Kayu Asli Referensi ── */
+  /* ── Papan Kayu Pinus Alami (Sesuai Image 1 Referensi Poster: Warm Honey/Pine Wood) ── */
   .plank {
-    background: linear-gradient(135deg, #c98d52 0%, #a96f3a 100%);
-    color: #fffae0;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(130, 88, 50, 0.06) 0px,
+        rgba(130, 88, 50, 0.06) 2px,
+        transparent 2px,
+        transparent 7px
+      ),
+      linear-gradient(180deg, #edd29e 0%, #e3ba7b 22%, #d7a865 52%, #c7944f 82%, #b57f3a 100%);
+    border: 3px solid #825832;
+    box-shadow: 0 4px 0 #5c381c, 0 8px 18px rgba(92, 56, 28, 0.25);
+    border-radius: 1.1rem;
+    color: #4a290d;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    border-radius: 0.75rem;
-    box-shadow: 0 3px 0 #7a4a22;
-    letter-spacing: 0.01em;
   }
 
-  /* ── Kartu Krem Ilustratif Tebal ── */
+  /* ── Kartu Krem Tebal dengan Backdrop Blur Halus agar Teks Tetap Sangat Nyaman Dibaca ── */
   .card-cream {
-    background-color: #fffae0;
+    background-color: rgba(255, 250, 224, 0.96);
+    backdrop-filter: blur(8px);
     border: 3px solid #e8d79a;
     border-radius: 1.5rem;
-    box-shadow: 0 6px 0 rgba(122, 74, 34, 0.25);
+    box-shadow: 0 6px 0 #c9a84c, 0 10px 25px rgba(0, 0, 0, 0.15);
   }
 
-  /* ── Judul Gradasi Kuning ke Hijau Sesuai Poster ── */
+  /* ── Judul CULTIVARE: Persis Sesuai Image 2 Poster Resmi (Sunny Yellow ke Fresh Sprout Lime) ── */
   .title-grad {
     font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    background: linear-gradient(180deg, #fff7a1 0%, #f6b830 45%, #6fb83a 100%);
+    font-weight: 700;
+    background: linear-gradient(180deg,
+      #fff8a0 0%,
+      #fde468 25%,
+      #e2d755 50%,
+      #b2df66 78%,
+      #88c845 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    filter: drop-shadow(0 3px 0 #3f7d2a);
+    /* Soft, elegant organic depth shadow persis di atas papan kayu alami */
+    filter:
+      drop-shadow(0 2px 2px rgba(60, 30, 10, 0.55))
+      drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   }
 
-  /* ── Tombol Utama Pill Kuning Sun ── */
+  /* ── Tombol Utama Kuning Sun ── */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -74,22 +92,88 @@
     color: #7a4a22;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    padding: 0.75rem 1.75rem;
+    padding: 0.75rem 2rem;
     border-radius: 9999px;
     box-shadow: 0 4px 0 #b57b45;
+    border: 2px solid #c98d52;
     transition: transform 100ms ease, box-shadow 100ms ease;
-    min-height: 44px;
+    min-height: 48px;
     cursor: pointer;
     text-decoration: none;
+    font-size: 1rem;
   }
-
   .btn-primary:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #b57b45;
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #b57b45;
   }
-
   .btn-primary:focus-visible {
     outline: 3px solid #3f7d2a;
     outline-offset: 3px;
   }
+
+  /* ── Kartu Tanaman – tombol tekan ke bawah saat diklik ── */
+  .plant-card-link:active article {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #c9a84c;
+  }
+}
+
+/* ─────── Animasi Halus & Dinamis: Awan, Dedaunan, Kelopak Bunga ─────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.anim-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50%       { transform: rotate(3deg) translateY(-5px); }
+}
+.anim-bob {
+  animation: bob 2.2s ease-in-out infinite;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0.7); opacity: 0; }
+  80%  { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.anim-pop {
+  animation: popIn 0.3s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+/* Daun berayun tertiup angin sepoi */
+@keyframes sway {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50%       { transform: rotate(8deg) translateY(-6px); }
+}
+.anim-sway {
+  animation: sway 3.5s ease-in-out infinite;
+}
+
+/* Awan mengalir di langit */
+@keyframes driftLeft {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-18px); }
+  100% { transform: translateX(0); }
+}
+@keyframes driftRight {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(18px); }
+  100% { transform: translateX(0); }
+}
+.anim-drift-l { animation: driftLeft 9s ease-in-out infinite; }
+.anim-drift-r { animation: driftRight 11s ease-in-out infinite; }
+
+/* Kelopak daun melayang pelan seperti di latar belakang poster */
+@keyframes fallingLeaf {
+  0%   { transform: translateY(-10px) rotate(0deg) translateX(0); }
+  50%  { transform: translateY(12px) rotate(15deg) translateX(10px); }
+  100% { transform: translateY(-10px) rotate(0deg) translateX(0); }
+}
+.anim-leaf-fall {
+  animation: fallingLeaf 5s ease-in-out infinite;
 }

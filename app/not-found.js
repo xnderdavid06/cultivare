@@ -6,27 +6,47 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-      <div className="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-cream shadow-[0_6px_0_#7a4a22] bg-[#fbf5dc] mb-5 p-2 flex items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center relative overflow-hidden">
+
+      {/* Awan latar */}
+      <img src="/assets/awan 1.png" alt="" aria-hidden="true"
+        className="fixed top-6 left-2 w-36 opacity-40 pointer-events-none select-none anim-drift-l -z-10" />
+      <img src="/assets/awan 2.png" alt="" aria-hidden="true"
+        className="fixed top-14 right-2 w-44 opacity-40 pointer-events-none select-none anim-drift-r -z-10" />
+
+      {/* Roowy mengambang dengan batu di bawahnya */}
+      <div className="relative mb-5">
         <img
-          src="/assets/roowy-clean.png"
-          alt="Maskot Roowy"
-          className="w-full h-full object-contain"
+          src="/assets/roowy.png"
+          alt="Roowy kebingungan"
+          className="w-28 md:w-36 object-contain anim-float drop-shadow-lg"
+        />
+        <img
+          src="/assets/batu besar.png"
+          alt="" aria-hidden="true"
+          className="w-40 md:w-48 opacity-70 pointer-events-none select-none mt-1"
+        />
+        {/* Dedaunan di kanan batu */}
+        <img
+          src="/assets/dedaunan.png"
+          alt="" aria-hidden="true"
+          className="absolute bottom-2 right-0 w-10 h-auto pointer-events-none select-none opacity-75 anim-sway"
         />
       </div>
 
-      <h1 className="title-grad text-5xl md:text-6xl mb-2">
-        Oops!
-      </h1>
-      <p className="text-white text-xl font-display font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] mb-2">
-        Tanaman tidak ditemukan
-      </p>
-      <p className="text-white text-base font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] mb-6 max-w-xs">
-        Halaman tanaman yang kamu cari tidak ada atau alamat QR Code-nya keliru.
-      </p>
+      <h1 className="title-grad text-5xl md:text-6xl mb-3">Oops!</h1>
 
-      <Link href="/" className="btn-primary text-base">
-        Kembali ke Katalog
+      <div className="card-cream px-6 py-5 max-w-xs mb-6">
+        <p className="font-display font-bold text-bark text-lg mb-1.5">
+          Tanaman tidak ditemukan
+        </p>
+        <p className="text-bark/80 text-sm leading-relaxed font-medium">
+          Roowy sudah mencari ke seluruh sudut kebun, tapi tanaman ini belum ada atau QR Code-nya keliru!
+        </p>
+      </div>
+
+      <Link href="/" className="btn-primary">
+        Kembali ke Kebun
       </Link>
     </div>
   );

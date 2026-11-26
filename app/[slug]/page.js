@@ -2,14 +2,13 @@ import { notFound } from 'next/navigation';
 import { plants, site } from '../../data/plants.js';
 import Header from '../../components/Header.js';
 import PlantImage from '../../components/PlantImage.js';
+import ThemedBulletList from '../../components/ThemedBulletList.js';
 import Link from 'next/link';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return plants.map((plant) => ({
-    slug: plant.slug,
-  }));
+  return plants.map((p) => ({ slug: p.slug }));
 }
 
 export function generateMetadata({ params }) {
@@ -21,35 +20,24 @@ export function generateMetadata({ params }) {
   };
 }
 
-// ── Judul Papan Kayu yang Menempel di Atas Kartu Krem ──
+/* ── Papan Kayu judul section rapi & terpadu ── */
 function SectionTitle({ children }) {
   return (
-    <div className="relative z-10 -mb-3 ml-4 sm:ml-6 inline-block">
-      <span className="plank inline-block px-5 py-2 text-sm md:text-base">
+    <div className="relative z-10 -mb-3.5 ml-4 sm:ml-6 inline-flex items-center">
+      <span className="plank inline-flex items-center px-5 py-2 text-sm md:text-base border-2 border-[#965f2e]">
         {children}
       </span>
     </div>
   );
 }
 
-function BulletList({ items }) {
-  return (
-    <ul className="space-y-2.5 mt-1">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-2.5 items-start text-bark">
-          <span className="text-leaf-dark font-bold text-sm mt-0.5 shrink-0">●</span>
-          <span className="text-base leading-snug font-medium">{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
+/* ── Kartu section krem berkarakter ceria ── */
+/* ── Kartu section krem berkarakter ceria ── */
 function SectionCard({ title, children }) {
   return (
-    <div className="mt-6">
+    <div className="mt-8">
       <SectionTitle>{title}</SectionTitle>
-      <div className="card-cream p-4 md:p-5 pt-5">
+      <div className="card-cream p-5 md:p-6 pt-7 relative overflow-hidden">
         {children}
       </div>
     </div>
@@ -61,156 +49,262 @@ export default function PlantPage({ params }) {
   if (!plant) notFound();
 
   return (
-    <div className="min-h-screen relative pb-16">
-      <div className="relative max-w-2xl mx-auto px-4">
+    <div className="min-h-screen relative pb-20 overflow-x-hidden">
+      {/* ── Background: Awan & Dedaunan Bergerak Halus di Lapisan Belakang (-z-10) ── */}
+      <img
+        src="/assets/awan 1.png"
+        alt=""
+        aria-hidden="true"
+        className="fixed top-6 -left-12 w-48 opacity-70 pointer-events-none select-none anim-drift-l -z-10"
+      />
+      <img
+        src="/assets/awan 2.png"
+        alt=""
+        aria-hidden="true"
+        className="fixed top-20 -right-16 w-56 opacity-70 pointer-events-none select-none anim-drift-r -z-10"
+      />
+      <img
+        src="/assets/awan 3.png"
+        alt=""
+        aria-hidden="true"
+        className="fixed top-2 left-1/3 w-40 opacity-60 pointer-events-none select-none anim-drift-l -z-10"
+      />
+      <img
+        src="/assets/dedaunan.png"
+        alt=""
+        aria-hidden="true"
+        className="fixed top-44 -left-8 w-20 sm:w-24 opacity-75 pointer-events-none select-none anim-sway -z-10 hidden sm:block"
+      />
+      <img
+        src="/assets/dedaunan.png"
+        alt=""
+        aria-hidden="true"
+        className="fixed bottom-32 -right-8 w-20 sm:w-24 opacity-75 pointer-events-none select-none anim-sway -z-10 hidden sm:block"
+        style={{ animationDelay: '1.5s', transform: 'scaleX(-1)' }}
+      />
+
+      <div className="relative max-w-2xl mx-auto px-4 z-10">
+        {/* ── Header minimal ── */}
         <Header minimal />
 
-        {/* ── KARTU UTAMA: FOTO 4:3 & IDENTITAS TANAMAN ── */}
-        <div className="mt-4 card-cream overflow-hidden">
-          {/* Foto 4:3 */}
-          <div className="relative aspect-[4/3] w-full bg-[#fdf9e8] overflow-hidden border-b-3 border-[#e8d79a]">
+        {/* ═════════════════════════════════════════════════════════════
+            KARTU UTAMA: FOTO ASLI TANAMAN 4:3 + IDENTITAS & KATA ROOWY
+        ═══════════════════════════════════════════════════════════════ */}
+        <div className="mt-4 card-cream relative">
+
+          {/* 1. Foto Tanaman 4:3 */}
+          <div className="relative aspect-[4/3] w-full bg-[#fdf9e8] overflow-hidden rounded-t-[1.3rem] border-b-3 border-[#e8d79a]">
             <PlantImage
               src={plant.foto}
               alt={`Foto spesimen ${plant.namaLokal}`}
               className="w-full h-full object-cover"
             />
+            {/* Badge Papan Kayu di Sudut Kiri Foto */}
+            <div className="absolute top-3 left-3 plank px-3.5 py-1 text-xs sm:text-sm border border-[#965f2e] shadow-sm select-none">
+              Spesimen Koleksi Kebun
+            </div>
           </div>
 
-          {/* Kredit Foto Kecil */}
+          {/* Kredit foto kecil */}
           {plant.kreditFoto && (
-            <p className="text-xs text-bark/70 px-4 pt-2 pb-1 italic border-b border-[#ebd8a6] bg-[#fbf5dc]">
+            <p className="text-[11px] text-bark/60 italic px-4 py-1.5 bg-[#fdf5d4] border-b border-[#ebd8a6]">
               {plant.kreditFoto}
             </p>
           )}
 
-          {/* Identitas Tanaman Bersama Roowy */}
-          <div className="p-4 md:p-5">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <h1 className="font-display font-black text-3xl md:text-4xl text-bark leading-tight">
-                  {plant.namaLokal}
-                </h1>
-                <p className="italic font-bold text-lg text-leaf-dark mt-0.5">
-                  {plant.namaIlmiah}
-                </p>
-                <p className="text-sm text-bark/80 mt-1 font-semibold">
-                  Famili: <span className="italic">{plant.famili}</span>
-                </p>
-              </div>
+          {/* 2. Identitas Tanaman & Roowy BESAR di Samping Balon Kata Roowy */}
+          <div className="p-5 md:p-6">
+            <h1 className="font-display font-black text-3xl sm:text-4xl text-bark leading-tight">
+              {plant.namaLokal}
+            </h1>
+            <p className="italic font-bold text-lg sm:text-xl text-leaf-dark mt-1">
+              {plant.namaIlmiah}
+            </p>
+            <p className="text-sm sm:text-base text-bark/80 mt-1 font-semibold">
+              Famili: <span className="italic font-bold">{plant.famili}</span>
+            </p>
 
-              {/* Maskot Roowy di Setiap Tumbuhan */}
-              <div className="shrink-0 flex flex-col items-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-3 border-cream shadow-[0_3px_0_#7a4a22] bg-[#fbf5dc] p-1 flex items-center justify-center">
+            {/* 3. Box KATA ROOWY – Samakan dengan Style Chat Awal (Kepala Saja, Tetap Gerak, Sizing Pas & Mantap) */}
+            {plant.catatanRoowy && (
+              <div className="relative mt-6 pt-1 flex items-center gap-3 sm:gap-5">
+                {/* Kepala Roowy Ceria & Tetap Bergoyang – Ukuran Pas & Mantap Sesuai Beranda */}
+                <div className="shrink-0 relative flex items-center justify-center">
                   <img
-                    src="/assets/roowy.png"
-                    alt="Roowy"
-                    className="w-full h-full object-contain"
+                    src="/assets/roowy-head.png"
+                    alt="Kepala Roowy"
+                    className="w-22 h-22 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain anim-bob drop-shadow-md select-none pointer-events-none"
                   />
                 </div>
-                <span className="mt-1 px-2 py-0.5 bg-[#f6b830] text-wood-dark font-display font-bold text-[10px] rounded-full shadow-[0_1px_0_#b57b45]">
-                  Roowy
-                </span>
-              </div>
-            </div>
 
-            {/* Catatan Roowy untuk Tumbuhan Ini */}
-            {plant.catatanRoowy && (
-              <div className="mt-3.5 p-3 bg-[#fdf8e2] border-2 border-[#d8b878] rounded-xl flex items-start gap-2.5">
-                <span className="text-leaf-dark font-bold text-sm mt-0.5 shrink-0">●</span>
-                <p className="text-xs sm:text-sm text-bark leading-snug font-semibold">
-                  <strong className="text-wood-dark">Kata Roowy:</strong> "{plant.catatanRoowy}"
-                </p>
+                {/* Balon Dialog Kata Roowy yang Luas & Nyaman Dibaca */}
+                <div className="flex-1 min-w-0">
+                  <div className="relative bg-[#fffdf0] border-2 sm:border-3 border-[#d8b878] rounded-2xl sm:rounded-3xl px-4 py-3.5 sm:px-6 sm:py-5 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)]">
+                    {/* Ekor balon dialog menunjuk ke arah kepala Roowy di kiri */}
+                    <div className="absolute -left-[12px] top-6 sm:top-8 w-0 h-0
+                      border-t-[9px] border-t-transparent
+                      border-r-[12px] border-r-[#d8b878]
+                      border-b-[9px] border-b-transparent" />
+                    <div className="absolute -left-[8px] top-[26px] sm:top-[31px] w-0 h-0
+                      border-t-[7px] border-t-transparent
+                      border-r-[9px] border-r-[#fffdf0]
+                      border-b-[7px] border-b-transparent" />
+
+                    <p className="text-bark text-sm sm:text-base md:text-lg leading-relaxed font-bold">
+                      "{plant.catatanRoowy}"
+                    </p>
+                  </div>
+                </div>
               </div>
             )}
           </div>
         </div>
 
-        {/* ── 1. TENTANG TANAMAN ── */}
+        {/* ════════════════════════════════════
+            SECTION INFORMATIF: MENARIK & LUCU
+        ════════════════════════════════════ */}
+
+        {/* 1. Tentang Tanaman */}
         <SectionCard title="Tentang Tanaman">
-          <p className="text-bark text-base leading-relaxed font-medium">
-            {plant.deskripsi}
-          </p>
-        </SectionCard>
-
-        {/* ── 2. CIRI KHAS ── */}
-        <SectionCard title="Ciri Khas">
-          <BulletList items={plant.ciriKhas} />
-        </SectionCard>
-
-        {/* ── 3. MANFAAT UTAMA ── */}
-        <SectionCard title="Manfaat Utama">
-          <BulletList items={plant.manfaat} />
-        </SectionCard>
-
-        {/* ── 4. KHASIAT TRADISIONAL ── */}
-        <SectionCard title="Khasiat Tradisional">
-          <BulletList items={plant.khasiat} />
-        </SectionCard>
-
-        {/* ── 5. BISA DIBUAT JADI ── */}
-        <SectionCard title="Bisa Dibuat Jadi">
-          <BulletList items={plant.bisaDibuat} />
-        </SectionCard>
-
-        {/* ── 6. PANDUAN PERAWATAN (HANYA DI SINI ADA EMOJI ☀️ 💧 🪴 💡) ── */}
-        <SectionCard title="Panduan Perawatan">
-          <div className="space-y-3.5">
-            <div className="flex gap-3 items-start">
-              <span className="text-2xl shrink-0" aria-hidden="true">☀️</span>
-              <div>
-                <p className="font-display font-bold text-bark text-sm">Cahaya</p>
-                <p className="text-bark text-base leading-snug">{plant.perawatan.cahaya}</p>
-              </div>
-            </div>
-
-            <div className="flex gap-3 items-start">
-              <span className="text-2xl shrink-0" aria-hidden="true">💧</span>
-              <div>
-                <p className="font-display font-bold text-bark text-sm">Penyiraman</p>
-                <p className="text-bark text-base leading-snug">{plant.perawatan.penyiraman}</p>
-              </div>
-            </div>
-
-            <div className="flex gap-3 items-start">
-              <span className="text-2xl shrink-0" aria-hidden="true">🪴</span>
-              <div>
-                <p className="font-display font-bold text-bark text-sm">Media Tanam</p>
-                <p className="text-bark text-base leading-snug">{plant.perawatan.media}</p>
-              </div>
-            </div>
-
-            {/* Kotak Tips Hijau Muda */}
-            <div className="mt-3 bg-green-50 border-2 border-leaf/50 rounded-2xl p-4 flex gap-3 items-start">
-              <span className="text-2xl shrink-0" aria-hidden="true">💡</span>
-              <p className="text-leaf-dark text-base leading-snug font-semibold">
-                {plant.perawatan.tips}
-              </p>
-            </div>
+          <div className="bg-[#fffdf0] p-4 sm:p-5 rounded-2xl border-2 border-[#ebd8a6]/70 shadow-sm leading-relaxed">
+            <p className="text-bark text-base sm:text-lg font-medium leading-relaxed">
+              {plant.deskripsi}
+            </p>
           </div>
         </SectionCard>
 
-        {/* ── 7. KOTAK CATATAN KEHATI-HATIAN ── */}
-        <div className="mt-6 bg-[#fff7d9] border-3 border-[#f6b830] rounded-2xl p-4 md:p-5 shadow-[0_4px_0_rgba(122,74,34,0.15)]">
-          <p className="font-display font-bold text-wood-dark text-base mb-1.5">
-            Catatan Kehati-hatian
-          </p>
-          <p className="text-bark text-base leading-relaxed font-medium">
-            {plant.catatan}
-          </p>
-          <p className="mt-3 text-bark/75 text-sm italic border-t border-[#ebd8a6] pt-3 font-semibold">
-            Informasi ini bersifat edukasi dan bukan pengganti saran dokter.
-          </p>
+        {/* 2. Ciri Khas - Poin dengan Ikon Pembesar/Tunas Hijau */}
+        <SectionCard title="Ciri Khas">
+          <ThemedBulletList items={plant.ciriKhas} category="ciri" />
+        </SectionCard>
+
+        {/* 3. Manfaat Utama - Poin dengan Ikon Bintang Emas */}
+        <SectionCard title="Manfaat Utama">
+          <ThemedBulletList items={plant.manfaat} category="manfaat" />
+        </SectionCard>
+
+        {/* 4. Khasiat Tradisional - Poin dengan Ikon Cangkir Jamu Tradisional */}
+        <SectionCard title="Khasiat Tradisional">
+          <ThemedBulletList items={plant.khasiat} category="khasiat" />
+        </SectionCard>
+
+        {/* 5. Bisa Dibuat Jadi - Poin dengan Ikon Mangkok Olahan Herbal */}
+        <SectionCard title="Bisa Dibuat Jadi">
+          <ThemedBulletList items={plant.bisaDibuat} category="olahan" />
+        </SectionCard>
+
+        {/* ── 6. Panduan Perawatan: Interaktif & Teratur ── */}
+        <SectionCard title="Panduan Perawatan">
+          <div className="space-y-3">
+
+            {/* Cahaya — kuning hangat */}
+            <div className="flex items-stretch rounded-2xl border-2 overflow-hidden transition-all duration-200 hover:scale-[1.013] hover:shadow-[0_5px_0_rgba(246,184,48,0.3)] shadow-[0_3px_0_rgba(246,184,48,0.18)]"
+              style={{ background: 'linear-gradient(to right,#fffbe8,#fffdf5)', borderColor: '#f0d885' }}>
+              <div className="w-1.5 shrink-0" style={{ background: 'linear-gradient(to bottom,#f6b830,#c48512)' }} />
+              <div className="flex items-center px-3 py-3 shrink-0">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-2xl select-none border-2 shadow-[0_3px_0_#8a5500]"
+                  style={{ background: 'linear-gradient(135deg,#ffd84a,#e09000)', borderColor: '#b87200', transform: 'rotate(-4deg)' }}>
+                  <span style={{ transform: 'rotate(4deg)' }}>☀️</span>
+                </div>
+              </div>
+              <div className="py-3 pr-4">
+                <p className="font-display font-bold text-bark text-sm sm:text-base">Kebutuhan Cahaya</p>
+                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold">{plant.perawatan.cahaya}</p>
+              </div>
+            </div>
+
+            {/* Penyiraman — biru muda */}
+            <div className="flex items-stretch rounded-2xl border-2 overflow-hidden transition-all duration-200 hover:scale-[1.013] hover:shadow-[0_5px_0_rgba(70,160,220,0.3)] shadow-[0_3px_0_rgba(70,160,220,0.18)]"
+              style={{ background: 'linear-gradient(to right,#eaf6ff,#f5fbff)', borderColor: '#a8d8f0' }}>
+              <div className="w-1.5 shrink-0" style={{ background: 'linear-gradient(to bottom,#4fb8ee,#2080b8)' }} />
+              <div className="flex items-center px-3 py-3 shrink-0">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-2xl select-none border-2 shadow-[0_3px_0_#1560a0]"
+                  style={{ background: 'linear-gradient(135deg,#70caff,#2896d8)', borderColor: '#1a74b8', transform: 'rotate(-4deg)' }}>
+                  <span style={{ transform: 'rotate(4deg)' }}>💧</span>
+                </div>
+              </div>
+              <div className="py-3 pr-4">
+                <p className="font-display font-bold text-bark text-sm sm:text-base">Jadwal Penyiraman</p>
+                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold">{plant.perawatan.penyiraman}</p>
+              </div>
+            </div>
+
+            {/* Media Tanam — hijau earthy */}
+            <div className="flex items-stretch rounded-2xl border-2 overflow-hidden transition-all duration-200 hover:scale-[1.013] hover:shadow-[0_5px_0_rgba(63,158,104,0.3)] shadow-[0_3px_0_rgba(63,158,104,0.18)]"
+              style={{ background: 'linear-gradient(to right,#e8f7ee,#f5fffb)', borderColor: '#a8dfbe' }}>
+              <div className="w-1.5 shrink-0" style={{ background: 'linear-gradient(to bottom,#3f9e68,#1c693a)' }} />
+              <div className="flex items-center px-3 py-3 shrink-0">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-2xl select-none border-2 shadow-[0_3px_0_#0a4428]"
+                  style={{ background: 'linear-gradient(135deg,#48d490,#167a48)', borderColor: '#105e38', transform: 'rotate(-4deg)' }}>
+                  <span style={{ transform: 'rotate(4deg)' }}>🪴</span>
+                </div>
+              </div>
+              <div className="py-3 pr-4">
+                <p className="font-display font-bold text-bark text-sm sm:text-base">Media Tanam Terbaik</p>
+                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold">{plant.perawatan.media}</p>
+              </div>
+            </div>
+
+            {/* Tips Rahasia Roowy — hijau cerah dengan border tebal + shadow */}
+            <div className="mt-2 relative rounded-2xl overflow-hidden border-3 border-[#5fae2f] shadow-[0_5px_0_#3a7a1a]"
+              style={{ background: 'linear-gradient(135deg,#d4f5b8 0%,#e8fcd4 50%,#c8f0a0 100%)' }}>
+              {/* Aksen garis-garis dekoratif di sudut kanan */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-10 select-none pointer-events-none"
+                style={{ background: 'repeating-linear-gradient(45deg,#2e8c14,#2e8c14 2px,transparent 2px,transparent 8px)' }} />
+              <div className="relative flex gap-3 sm:gap-4 items-start p-4 sm:p-5">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl select-none border-2 border-[#3a7a1a] shadow-[0_3px_0_#1e5c0f] shrink-0"
+                  style={{ background: 'linear-gradient(135deg,#8de84a,#3a9e1a)', transform: 'rotate(-5deg)' }}>
+                  <span style={{ transform: 'rotate(5deg)' }}>💡</span>
+                </div>
+                <div>
+                  <p className="font-display font-black text-[#1b4d0a] text-xs sm:text-sm uppercase tracking-widest">
+                    ✨ Tips Rahasia Roowy
+                  </p>
+                  <p className="text-[#1e5c10] text-sm sm:text-base leading-snug font-bold mt-1.5">
+                    {plant.perawatan.tips}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </SectionCard>
+
+        {/* ── 7. Kotak Catatan Kehati-hatian — lebih impactful ── */}
+        <div className="mt-8 relative rounded-2xl overflow-hidden border-3 border-[#f6b830] shadow-[0_5px_0_rgba(166,116,34,0.3)]"
+          style={{ background: 'linear-gradient(135deg,#fffbe8 0%,#fff8d6 50%,#fff3c0 100%)' }}>
+          {/* Strip atas kuning */}
+          <div className="h-2 w-full" style={{ background: 'linear-gradient(to right,#f6b830,#e09000,#f6b830)' }} />
+          <div className="p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl border-2 border-[#b87200] shadow-[0_3px_0_#8a5500] shrink-0"
+                style={{ background: 'linear-gradient(135deg,#ffd84a,#e09000)' }}>
+                🛡️
+              </div>
+              <p className="font-display font-black text-[#7a4a22] text-base sm:text-lg">
+                Catatan Kehati-hatian
+              </p>
+            </div>
+            <p className="text-bark text-sm sm:text-base leading-relaxed font-semibold">
+              {plant.catatan}
+            </p>
+            <div className="mt-4 flex items-center gap-2 border-t-2 border-[#ebd8a6] pt-3">
+              <span className="text-sm select-none">📋</span>
+              <p className="text-bark/65 text-xs sm:text-sm italic font-semibold">
+                Informasi ini bersifat edukasi dan bukan pengganti saran dokter.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* ── TOMBOL BESAR PALING BAWAH ── */}
-        <div className="mt-8 flex justify-center">
-          <Link href="/" className="btn-primary text-base md:text-lg">
+        {/* ── Tombol Kembali ke Beranda ── */}
+        <div className="mt-10 flex justify-center">
+          <Link href="/" className="btn-primary">
             ← Lihat Semua Tanaman
           </Link>
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-white/85 text-xs font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] pb-6">
+        <footer className="mt-12 text-center text-white/85 text-xs font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] pb-8">
           <p>© 2026 {site.event} · {site.title}</p>
         </footer>
       </div>
