@@ -3,6 +3,7 @@ import { plants, site } from '../../data/plants.js';
 import Header from '../../components/Header.js';
 import PlantImage from '../../components/PlantImage.js';
 import ThemedBulletList from '../../components/ThemedBulletList.js';
+import RoowyPlantChat from '../../components/RoowyPlantChat.js';
 import Link from 'next/link';
 
 export const dynamicParams = false;
@@ -99,10 +100,6 @@ export default function PlantPage({ params }) {
               alt={`Foto spesimen ${plant.namaLokal}`}
               className="w-full h-full object-cover"
             />
-            {/* Badge Papan Kayu di Sudut Kiri Foto */}
-            <div className="absolute top-3 left-3 plank px-3.5 py-1 text-xs sm:text-sm border border-[#965f2e] shadow-sm select-none">
-              Spesimen Koleksi Kebun
-            </div>
           </div>
 
           {/* Kredit foto kecil */}
@@ -112,7 +109,7 @@ export default function PlantPage({ params }) {
             </p>
           )}
 
-          {/* 2. Identitas Tanaman & Roowy BESAR di Samping Balon Kata Roowy */}
+          {/* 2. Identitas Tanaman & Roowy Interaktif (3 Fun Fact) */}
           <div className="p-5 md:p-6">
             <h1 className="font-display font-black text-3xl sm:text-4xl text-bark leading-tight">
               {plant.namaLokal}
@@ -124,38 +121,8 @@ export default function PlantPage({ params }) {
               Famili: <span className="italic font-bold">{plant.famili}</span>
             </p>
 
-            {/* 3. Box KATA ROOWY – Kepala Roowy Proporsional Sesuai Image 2, Aman Responsif di Semua Layar */}
-            {plant.catatanRoowy && (
-              <div className="relative mt-6 pt-1 flex items-center gap-3 sm:gap-4">
-                {/* Kepala Roowy Ceria & Tetap Bergoyang – Ukuran Aman Terkunci Sesuai Image 2 */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center">
-                  <img
-                    src="/assets/roowy-head.png"
-                    alt="Kepala Roowy"
-                    className="w-full h-full object-contain anim-bob drop-shadow-md select-none pointer-events-none"
-                  />
-                </div>
-
-                {/* Balon Dialog Kata Roowy yang Luas & Nyaman Dibaca */}
-                <div className="flex-1 min-w-0">
-                  <div className="relative bg-[#fffdf0] border-2 sm:border-3 border-[#d8b878] rounded-2xl sm:rounded-3xl px-3.5 py-3 sm:px-5 sm:py-4 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)]">
-                    {/* Ekor balon dialog menunjuk ke arah kepala Roowy di kiri */}
-                    <div className="absolute -left-[12px] top-5 sm:top-6 w-0 h-0
-                      border-t-[8px] border-t-transparent
-                      border-r-[12px] border-r-[#d8b878]
-                      border-b-[8px] border-b-transparent" />
-                    <div className="absolute -left-[8px] top-[24px] sm:top-[28px] w-0 h-0
-                      border-t-[6px] border-t-transparent
-                      border-r-[8px] border-r-[#fffdf0]
-                      border-b-[6px] border-b-transparent" />
-
-                    <p className="text-bark text-xs sm:text-sm md:text-base leading-relaxed font-bold">
-                      "{plant.catatanRoowy}"
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+            {/* 3. Roowy Interaktif – Bisa Di-tap dengan 3 Fun Fact per Tanaman */}
+            <RoowyPlantChat facts={plant.funFacts || (plant.catatanRoowy ? [plant.catatanRoowy] : [])} />
           </div>
         </div>
 

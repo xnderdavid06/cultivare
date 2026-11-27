@@ -25,24 +25,40 @@ export default function RoowyInteractive({ plantNote = null }) {
     <div className="card-cream relative my-6 p-4 sm:p-6">
       <div className="flex items-center gap-3.5 sm:gap-5">
 
-        {/* ── Kepala Roowy Interaktif & Tetap Bergoyang Ceria ── */}
+        {/* ── Kepala Roowy Interaktif & Tetap Bergoyang Ceria – Ukuran Terkunci Mutlak Sesuai Image 2 ── */}
         <button
           type="button"
           onClick={handleKetuk}
           aria-label="Ketuk Roowy untuk tips lain"
-          className="shrink-0 flex flex-col items-center justify-center focus:outline-none group active:translate-y-1 transition-transform pt-1"
+          className="shrink-0 p-0 m-0 bg-transparent border-0 flex flex-col items-center justify-center focus:outline-none group active:translate-y-1 transition-transform cursor-pointer"
+          style={{
+            width: '76px',
+            height: '76px',
+            minWidth: '76px',
+            minHeight: '76px',
+            maxWidth: '76px',
+            maxHeight: '76px',
+          }}
         >
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center">
+          <div
+            className="w-full h-full flex items-center justify-center overflow-visible"
+            style={{ width: '100%', height: '100%' }}
+          >
             <img
               src="/assets/roowy-head.png"
               alt="Kepala Roowy si maskot tunas"
+              width={76}
+              height={76}
               className="w-full h-full object-contain anim-bob drop-shadow-md group-hover:scale-105 group-active:scale-95 transition-transform select-none pointer-events-none"
+              style={{
+                width: '100%',
+                height: '100%',
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+              }}
             />
           </div>
-          {/* Badge "Ketuk!" di bawah kepala Roowy dengan jarak aman (TIDAK menutupi dagu/mulut) */}
-          <span className="mt-1.5 whitespace-nowrap bg-[#f6b830] text-[#7a4a22] text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border-2 border-[#b57b45] shadow-[0_2px_0_#b57b45] select-none font-display group-hover:scale-105 transition-transform">
-            Ketuk!
-          </span>
         </button>
 
         {/* ── Box Chat Roowy yang Lebih Besar & Nyaman Dibaca ── */}
