@@ -20,7 +20,7 @@ export default function Header({ minimal = false }) {
         >
           <div className="w-[240px] xs:w-[265px] sm:w-[320px] md:w-[370px] max-w-full group-hover:scale-[1.02] transition-transform">
             <svg
-              viewBox="0 0 866 294"
+              viewBox="0 0 866 220"
               className="w-full h-auto overflow-visible drop-shadow-[0_4px_12px_rgba(70,35,15,0.35)]"
             >
               <defs>
@@ -40,18 +40,18 @@ export default function Header({ minimal = false }) {
                 </filter>
 
                 {/* Garis lengkung simetris persis di tengah papan (jarak atas dan bawah seimbang sempurna) */}
-                <path id="cultivareArc" d="M 70 170 Q 433 106 796 170" fill="none" />
+                <path id="cultivareArc" d="M 80 155 Q 433 107 786 155" fill="none" />
               </defs>
 
-              {/* Background Papan Kayu Asli Lengkung Sesuai Gambar 2 */}
-              <image href="/assets/wood-plank.png" x="0" y="0" width="866" height="294" />
+              {/* Background Papan Kayu Asli Lengkung Sesuai Gambar 2 (Ramping & Proporsional) */}
+              <image href="/assets/wood-plank.png" x="0" y="0" width="866" height="220" />
 
-              {/* Judul CULTIVARE yang Besar, Jelas & Proporsional Rapi */}
+              {/* Judul CULTIVARE yang Proporsional Rapi, Tanpa Ruang Kosong Berlebih */}
               <text
                 fontFamily="'Playfair Display', Georgia, serif"
                 fontWeight="800"
-                fontSize="116"
-                letterSpacing="4"
+                fontSize="108"
+                letterSpacing="5"
                 fill="url(#cultivareTitleGrad)"
                 filter="url(#woodTextDepth)"
               >
