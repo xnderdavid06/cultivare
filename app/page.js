@@ -54,8 +54,8 @@ export default function HomePage() {
         <RoowyInteractive />
 
         {/* ── Banner Petunjuk QR Scanner Otentik ── */}
-        <div className="my-5 text-center">
-          <div className="inline-flex items-center gap-2.5 bg-[#fffae0]/95 border-2 border-[#e8d79a] px-4 py-2.5 rounded-full shadow-[0_3px_0_rgba(122,74,34,0.18)] hover:scale-[1.02] transition-transform">
+        <div className="mt-2 mb-3.5 sm:mt-2.5 sm:mb-4 text-center">
+          <div className="inline-flex items-center gap-2.5 bg-[#fffae0]/95 border-2 border-[#e8d79a] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-[0_2.5px_0_rgba(122,74,34,0.18)] hover:scale-[1.02] transition-transform">
             <div className="w-6 h-6 rounded-lg bg-[#f6b830] border border-[#b57b45] flex items-center justify-center shrink-0 shadow-sm text-wood-dark">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -22,7 +22,7 @@ export default function RoowyInteractive({ plantNote = null }) {
   const teks = plantNote || PESAN[idx];
 
   return (
-    <div className="card-cream relative my-6 p-4 sm:p-6">
+    <div className="card-cream relative mt-2.5 mb-3 sm:mt-3 sm:mb-4 p-3.5 sm:p-5">
       <div className="flex items-center gap-3.5 sm:gap-5">
 
         {/* ── Kepala Roowy Interaktif & Tetap Bergoyang Ceria – Ukuran Terkunci Mutlak Sesuai Image 2 ── */}

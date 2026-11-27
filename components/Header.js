@@ -3,25 +3,25 @@ import { site } from '../data/plants.js';
 
 export default function Header({ minimal = false }) {
   return (
-    <header className="relative z-10 pt-5 pb-2 px-3 text-center select-none">
+    <header className="relative z-10 pt-2.5 sm:pt-3.5 pb-0 px-3 text-center select-none">
       {/* ── Subtitle event ── */}
-      <div className="mb-2 text-center">
-        <p className="text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.2em] text-[#fffde6] drop-shadow-[0_2px_0_#14422e] drop-shadow-[0_4px_8px_rgba(20,66,46,0.6)] select-none font-sans">
+      <div className="mb-1 text-center">
+        <p className="text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-[0.2em] text-[#fffde6] drop-shadow-[0_2px_0_#14422e] drop-shadow-[0_4px_8px_rgba(20,66,46,0.6)] select-none font-sans">
           {site.event}
         </p>
       </div>
 
-      {/* ── Papan Aksen Kayu Judul CULTIVARE (Sesuai Gambar 2: Lengkung & Proporsional Sempurna) ── */}
+      {/* ── Papan Aksen Kayu Judul CULTIVARE (Kompak, Teks Besar & Proporsional Sempurna) ── */}
       <div className="relative inline-flex items-center justify-center max-w-full">
         <Link
           href="/"
           className="inline-block focus-visible:outline-none group active:translate-y-1 transition-transform max-w-full"
           aria-label="Ke halaman beranda Cultivare"
         >
-          <div className="w-[300px] xs:w-[320px] sm:w-[420px] md:w-[490px] max-w-full group-hover:scale-[1.02] transition-transform">
+          <div className="w-[240px] xs:w-[265px] sm:w-[320px] md:w-[370px] max-w-full group-hover:scale-[1.02] transition-transform">
             <svg
               viewBox="0 0 866 294"
-              className="w-full h-auto overflow-visible drop-shadow-[0_6px_16px_rgba(70,35,15,0.4)]"
+              className="w-full h-auto overflow-visible drop-shadow-[0_4px_12px_rgba(70,35,15,0.35)]"
             >
               <defs>
                 {/* Gradien Sunny Yellow ke Fresh Lime Sprout */}
@@ -35,23 +35,23 @@ export default function Header({ minimal = false }) {
 
                 {/* Filter Efek Kedalaman Huruf di Papan Kayu */}
                 <filter id="woodTextDepth" x="-10%" y="-10%" width="120%" height="130%">
-                  <feDropShadow dx="0" dy="2.5" stdDeviation="1.5" floodColor="#3d1b06" floodOpacity="0.75" />
-                  <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#000000" floodOpacity="0.3" />
+                  <feDropShadow dx="0" dy="2.5" stdDeviation="1.5" floodColor="#3d1b06" floodOpacity="0.85" />
+                  <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#000000" floodOpacity="0.35" />
                 </filter>
 
                 {/* Garis lengkung simetris persis mengikuti lengkungan papan kayu */}
-                <path id="cultivareArc" d="M 80 188 Q 433 124 786 188" fill="none" />
+                <path id="cultivareArc" d="M 70 198 Q 433 134 796 198" fill="none" />
               </defs>
 
               {/* Background Papan Kayu Asli Lengkung Sesuai Gambar 2 */}
               <image href="/assets/wood-plank.png" x="0" y="0" width="866" height="294" />
 
-              {/* Judul CULTIVARE yang Melengkung Anggun & Proporsional Rapi */}
+              {/* Judul CULTIVARE yang Besar, Jelas & Proporsional Rapi */}
               <text
                 fontFamily="'Playfair Display', Georgia, serif"
-                fontWeight="700"
-                fontSize="82"
-                letterSpacing="7"
+                fontWeight="800"
+                fontSize="116"
+                letterSpacing="4"
                 fill="url(#cultivareTitleGrad)"
                 filter="url(#woodTextDepth)"
               >
@@ -63,13 +63,6 @@ export default function Header({ minimal = false }) {
           </div>
         </Link>
       </div>
-
-      {/* ── Tagline (hanya tampil di halaman beranda / non-minimal) ── */}
-      {!minimal && (
-        <p className="mt-2 text-white/95 text-xs sm:text-sm font-extrabold tracking-wider drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.6)]">
-          {site.tagline}
-        </p>
-      )}
     </header>
   );
 }

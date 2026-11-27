@@ -100,7 +100,7 @@ export default function PlantPage({ params }) {
         {/* ═════════════════════════════════════════════════════════════
             KARTU UTAMA: FOTO ASLI TANAMAN 4:3 + IDENTITAS & KATA ROOWY
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="mt-4 card-cream relative">
+        <div className="mt-2 sm:mt-3 card-cream relative">
 
           {/* 1. Foto Tanaman 4:3 */}
           <div className="relative aspect-[4/3] w-full bg-[#fdf9e8] overflow-hidden rounded-t-[1.3rem] border-b-[3px] border-[#e8d79a]">
