@@ -39,8 +39,8 @@ export default function Header({ minimal = false }) {
                   <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#000000" floodOpacity="0.35" />
                 </filter>
 
-                {/* Garis lengkung simetris persis mengikuti lengkungan papan kayu */}
-                <path id="cultivareArc" d="M 70 198 Q 433 134 796 198" fill="none" />
+                {/* Garis lengkung simetris persis di tengah papan (jarak atas dan bawah seimbang sempurna) */}
+                <path id="cultivareArc" d="M 70 170 Q 433 106 796 170" fill="none" />
               </defs>
 
               {/* Background Papan Kayu Asli Lengkung Sesuai Gambar 2 */}
