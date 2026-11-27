@@ -19,7 +19,7 @@ export default function RoowyPlantChat({ facts = [] }) {
         type="button"
         onClick={handleTap}
         aria-label="Ketuk Roowy untuk fakta menarik lainnya"
-        className="shrink-0 p-0 m-0 bg-transparent border-0 flex flex-col items-center justify-center focus:outline-none group active:scale-90 transition-transform cursor-pointer"
+        className="shrink-0 p-0 m-0 bg-transparent border-0 flex flex-col items-center justify-center rounded-full group active:scale-90 transition-transform cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-leaf-dark focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffae0]"
         style={{
           width: '76px',
           height: '76px',
@@ -51,14 +51,16 @@ export default function RoowyPlantChat({ facts = [] }) {
       </button>
 
       {/* ── Balon Dialog Kata Roowy – Animasi Pop Setiap Ketuk (Sesuai Image 5) ── */}
-      <div
+      <button
+        type="button"
         onClick={handleTap}
-        className="flex-1 min-w-0 cursor-pointer"
+        className="flex-1 min-w-0 p-0 m-0 bg-transparent border-0 cursor-pointer text-left rounded-2xl sm:rounded-3xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-leaf-dark focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffae0]"
         title="Ketuk untuk fakta seru berikutnya"
+        aria-live="polite"
       >
         <div
           key={animKey}
-          className="anim-pop relative bg-[#fffdf0] hover:bg-[#fffbee] border-2 sm:border-3 border-[#d8b878] rounded-2xl sm:rounded-3xl px-3.5 py-3 sm:px-5 sm:py-4 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)] transition-colors"
+          className="anim-pop relative bg-[#fffdf0] hover:bg-[#fffbee] border-2 sm:border-[3px] border-[#d8b878] rounded-2xl sm:rounded-3xl px-3.5 py-3 sm:px-5 sm:py-4 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)] transition-colors"
         >
           {/* Ekor balon dialog menunjuk ke arah kepala Roowy di kiri */}
           <div className="absolute -left-[12px] top-5 sm:top-6 w-0 h-0
@@ -95,7 +97,7 @@ export default function RoowyPlantChat({ facts = [] }) {
             </div>
           )}
         </div>
-      </div>
+      </button>
     </div>
   );
 }

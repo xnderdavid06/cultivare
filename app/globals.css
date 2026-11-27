@@ -33,23 +33,46 @@
 }
 
 @layer components {
-  /* ── Papan Kayu Alami (Sesuai Gambar 2: Warm Cedar Wood #E19F65 dengan serat & bevel 3D) ── */
-  .plank {
-    background:
-      repeating-linear-gradient(
-        0deg,
-        rgba(180, 100, 40, 0.08) 0px,
-        rgba(180, 100, 40, 0.08) 2px,
-        transparent 2px,
-        transparent 7px
+  /* ── Papan Signboard Kayu (Gaya poster: papan datar bertekstur, warna hangat header) ── */
+  .wood-sign {
+    position: relative;
+    isolation: isolate;
+    background-color: #e39e63;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 244, 220, 0.4) 0%,
+        rgba(255, 244, 220, 0.05) 26%,
+        rgba(120, 55, 15, 0.03) 62%,
+        rgba(90, 40, 10, 0.18) 100%
       ),
-      linear-gradient(180deg, #f0b57e 0%, #e19f65 28%, #d38c50 65%, #ba7235 100%);
+      url('/assets/wood-grain.svg'),
+      linear-gradient(180deg, #f0b57e 0%, #e8a76c 28%, #e19f65 62%, #cf8a4c 100%);
+    background-size: 100% 100%, 480px 100%, 100% 100%;
+    background-repeat: no-repeat, repeat-x, no-repeat;
+    background-position: center, center, center;
     border: 2.5px solid #8d441a;
-    box-shadow: 0 4px 0 #6e2f0d, 0 8px 16px rgba(70, 30, 10, 0.25);
-    border-radius: 0.9rem;
+    border-radius: 0.5rem;
+    box-shadow:
+      0 4px 0 #6e2f0d,
+      0 7px 14px rgba(70, 30, 10, 0.26),
+      inset 0 2px 0 rgba(255, 240, 210, 0.45),
+      inset 0 -3px 0 rgba(120, 55, 15, 0.2);
     color: #4a220a;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
+  }
+
+  /* Paku kecil di kedua ujung papan */
+  .wood-sign::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 9px 50%, #5b280b 0 1.6px, #b5723b 2.2px, transparent 3.1px),
+      radial-gradient(circle at calc(100% - 9px) 50%, #5b280b 0 1.6px, #b5723b 2.2px, transparent 3.1px);
+    pointer-events: none;
   }
 
   /* ── Kartu Krem Tebal dengan Backdrop Blur Halus agar Teks Tetap Sangat Nyaman Dibaca ── */

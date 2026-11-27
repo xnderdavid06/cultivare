@@ -30,7 +30,7 @@ export default function RoowyInteractive({ plantNote = null }) {
           type="button"
           onClick={handleKetuk}
           aria-label="Ketuk Roowy untuk tips lain"
-          className="shrink-0 p-0 m-0 bg-transparent border-0 flex flex-col items-center justify-center focus:outline-none group active:translate-y-1 transition-transform cursor-pointer"
+          className="shrink-0 p-0 m-0 bg-transparent border-0 flex flex-col items-center justify-center rounded-full group active:translate-y-1 transition-transform cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-leaf-dark focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffae0]"
           style={{
             width: '76px',
             height: '76px',
@@ -62,11 +62,11 @@ export default function RoowyInteractive({ plantNote = null }) {
         </button>
 
         {/* ── Box Chat Roowy yang Lebih Besar & Nyaman Dibaca ── */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0" aria-live="polite">
           {/* key berubah → animasi pop muncul lagi setiap ketuk */}
           <div
             key={animKey}
-            className="anim-pop relative bg-[#fffdf0] border-2 sm:border-3 border-[#d8b878] rounded-2xl sm:rounded-3xl px-5 py-4 sm:px-6 sm:py-5 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)]"
+            className="anim-pop relative bg-[#fffdf0] border-2 sm:border-[3px] border-[#d8b878] rounded-2xl sm:rounded-3xl px-5 py-4 sm:px-6 sm:py-5 shadow-[inset_0_1px_4px_rgba(200,160,80,0.18)]"
           >
             {/* Ekor balon ke kiri (menunjuk ke arah kepala Roowy) */}
             <div className="absolute -left-[12px] top-6 sm:top-7 w-0 h-0

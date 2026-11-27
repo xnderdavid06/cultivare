@@ -82,7 +82,7 @@ export default function HomePage() {
 
         {/* ── Grid 2 kolom kartu tanaman ── */}
         <section aria-label="Daftar tanaman herbal">
-          <div className="grid grid-cols-2 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 auto-rows-fr gap-4 md:gap-5">
             {plants.map((plant) => (
               <PlantCard key={plant.slug} plant={plant} />
             ))}

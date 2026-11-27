@@ -98,8 +98,8 @@ function BulletRow({ item, index, c }) {
       </div>
 
       {/* Teks konten */}
-      <div className="flex items-center py-3 sm:py-3.5 pr-4">
-        <p className="text-sm sm:text-base leading-relaxed font-bold text-bark">
+      <div className="flex items-center min-w-0 py-3 sm:py-3.5 pr-4">
+        <p className="text-sm sm:text-base leading-relaxed font-bold text-bark break-words">
           {item}
         </p>
       </div>

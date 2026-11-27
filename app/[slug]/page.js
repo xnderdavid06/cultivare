@@ -21,19 +21,19 @@ export function generateMetadata({ params }) {
   };
 }
 
-/* ── Papan Kayu judul section rapi & terpadu (Sesuai Bentuk & Warna Kayu Gambar 2) ── */
+/* ── Signboard kayu judul section (gaya poster, warna serasi dengan header) ── */
 function SectionTitle({ children }) {
   return (
-    <div className="relative z-10 -mb-4 ml-3 sm:ml-5 inline-flex items-center">
+    <div className="relative z-10 -mb-4 ml-3 sm:ml-5 inline-flex items-center max-w-[calc(100%-0.75rem)]">
       <div className="relative inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 select-none">
-        {/* Background Papan Kayu Asli Lengkung Sesuai Gambar 2 */}
+        {/* Papan Kayu Signboard dari Referensi Poster dengan Warna Selaras Header */}
         <img
-          src="/assets/wood-plank.png"
+          src="/assets/signboard-plank.png"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-fill drop-shadow-[0_4px_8px_rgba(70,35,15,0.35)] pointer-events-none select-none"
+          className="absolute inset-0 w-full h-full object-fill drop-shadow-[0_3px_6px_rgba(70,35,15,0.3)] pointer-events-none select-none"
         />
-        <span className="relative z-10 font-display font-black text-sm sm:text-base text-[#4a220a] drop-shadow-[0_1px_1px_rgba(255,235,200,0.85)] tracking-wide whitespace-nowrap pb-0.5">
+        <span className="relative z-10 font-display font-black text-sm sm:text-base text-[#4a220a] drop-shadow-[0_1px_1px_rgba(255,235,200,0.85)] tracking-wide whitespace-nowrap px-1 pb-0.5">
           {children}
         </span>
       </div>
@@ -103,7 +103,7 @@ export default function PlantPage({ params }) {
         <div className="mt-4 card-cream relative">
 
           {/* 1. Foto Tanaman 4:3 */}
-          <div className="relative aspect-[4/3] w-full bg-[#fdf9e8] overflow-hidden rounded-t-[1.3rem] border-b-3 border-[#e8d79a]">
+          <div className="relative aspect-[4/3] w-full bg-[#fdf9e8] overflow-hidden rounded-t-[1.3rem] border-b-[3px] border-[#e8d79a]">
             <PlantImage
               src={plant.foto}
               alt={`Foto spesimen ${plant.namaLokal}`}
@@ -182,9 +182,9 @@ export default function PlantPage({ params }) {
                   <span style={{ transform: 'rotate(4deg)' }}>☀️</span>
                 </div>
               </div>
-              <div className="py-3 pr-4">
+              <div className="min-w-0 py-3 pr-4">
                 <p className="font-display font-bold text-bark text-sm sm:text-base">Kebutuhan Cahaya</p>
-                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold">{plant.perawatan.cahaya}</p>
+                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold break-words">{plant.perawatan.cahaya}</p>
               </div>
             </div>
 
@@ -198,9 +198,9 @@ export default function PlantPage({ params }) {
                   <span style={{ transform: 'rotate(4deg)' }}>💧</span>
                 </div>
               </div>
-              <div className="py-3 pr-4">
+              <div className="min-w-0 py-3 pr-4">
                 <p className="font-display font-bold text-bark text-sm sm:text-base">Jadwal Penyiraman</p>
-                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold">{plant.perawatan.penyiraman}</p>
+                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold break-words">{plant.perawatan.penyiraman}</p>
               </div>
             </div>
 
@@ -214,14 +214,14 @@ export default function PlantPage({ params }) {
                   <span style={{ transform: 'rotate(4deg)' }}>🪴</span>
                 </div>
               </div>
-              <div className="py-3 pr-4">
+              <div className="min-w-0 py-3 pr-4">
                 <p className="font-display font-bold text-bark text-sm sm:text-base">Media Tanam Terbaik</p>
-                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold">{plant.perawatan.media}</p>
+                <p className="text-bark/80 text-sm sm:text-base leading-snug mt-0.5 font-semibold break-words">{plant.perawatan.media}</p>
               </div>
             </div>
 
             {/* Tips Rahasia Roowy — hijau cerah dengan border tebal + shadow */}
-            <div className="mt-2 relative rounded-2xl overflow-hidden border-3 border-[#5fae2f] shadow-[0_5px_0_#3a7a1a]"
+            <div className="mt-2 relative rounded-2xl overflow-hidden border-[3px] border-[#5fae2f] shadow-[0_5px_0_#3a7a1a]"
               style={{ background: 'linear-gradient(135deg,#d4f5b8 0%,#e8fcd4 50%,#c8f0a0 100%)' }}>
               {/* Aksen garis-garis dekoratif di sudut kanan */}
               <div className="absolute top-0 right-0 w-16 h-16 opacity-10 select-none pointer-events-none"
@@ -246,7 +246,7 @@ export default function PlantPage({ params }) {
         </SectionCard>
 
         {/* ── 7. Kotak Catatan Kehati-hatian — lebih impactful ── */}
-        <div className="mt-8 relative rounded-2xl overflow-hidden border-3 border-[#f6b830] shadow-[0_5px_0_rgba(166,116,34,0.3)]"
+        <div className="mt-8 relative rounded-2xl overflow-hidden border-[3px] border-[#f6b830] shadow-[0_5px_0_rgba(166,116,34,0.3)]"
           style={{ background: 'linear-gradient(135deg,#fffbe8 0%,#fff8d6 50%,#fff3c0 100%)' }}>
           {/* Strip atas kuning */}
           <div className="h-2 w-full" style={{ background: 'linear-gradient(to right,#f6b830,#e09000,#f6b830)' }} />
