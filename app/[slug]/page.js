@@ -21,13 +21,22 @@ export function generateMetadata({ params }) {
   };
 }
 
-/* ── Papan Kayu judul section rapi & terpadu ── */
+/* ── Papan Kayu judul section rapi & terpadu (Sesuai Bentuk & Warna Kayu Gambar 2) ── */
 function SectionTitle({ children }) {
   return (
-    <div className="relative z-10 -mb-3.5 ml-4 sm:ml-6 inline-flex items-center">
-      <span className="plank inline-flex items-center px-5 py-2 text-sm md:text-base border-2 border-[#965f2e]">
-        {children}
-      </span>
+    <div className="relative z-10 -mb-4 ml-3 sm:ml-5 inline-flex items-center">
+      <div className="relative inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 select-none">
+        {/* Background Papan Kayu Asli Lengkung Sesuai Gambar 2 */}
+        <img
+          src="/assets/wood-plank.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-fill drop-shadow-[0_4px_8px_rgba(70,35,15,0.35)] pointer-events-none select-none"
+        />
+        <span className="relative z-10 font-display font-black text-sm sm:text-base text-[#4a220a] drop-shadow-[0_1px_1px_rgba(255,235,200,0.85)] tracking-wide whitespace-nowrap pb-0.5">
+          {children}
+        </span>
+      </div>
     </div>
   );
 }

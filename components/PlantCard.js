@@ -33,10 +33,18 @@ export default function PlantCard({ plant }) {
           </div>
         </div>
 
-        {/* ── Tombol Papan Kayu Bawah ── */}
+        {/* ── Tombol Papan Kayu Bawah Sesuai Gambar 2 ── */}
         <div className="px-3 pb-3.5 pt-1">
-          <div className="plank w-full py-2 text-xs sm:text-sm text-center border-2 border-[#965f2e]">
-            Lihat Detail
+          <div className="relative flex items-center justify-center py-2.5 px-3">
+            <img
+              src="/assets/wood-plank.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-fill drop-shadow-sm select-none pointer-events-none"
+            />
+            <span className="relative z-10 font-display font-black text-xs sm:text-sm text-[#4a220a] drop-shadow-[0_1px_1px_rgba(255,235,200,0.85)] tracking-wide pb-0.5">
+              Lihat Detail
+            </span>
           </div>
         </div>
       </article>
